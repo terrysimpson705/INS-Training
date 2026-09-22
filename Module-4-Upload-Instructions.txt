@@ -1,0 +1,28 @@
+INS MARKET — MODULES 1–4
+
+Extract INS-Modules-1-4-Website.zip and upload all eight files to the same location in your existing GitHub Pages repository. Replace matching files, then commit the update.
+
+index.html
+app.js
+module3.html
+module3.js
+module4.html
+module4.js
+style.css
+ins-logo.png
+
+Module 4 opens from the navigation or /module4.html at your existing website address. Keep the same hosting address to retain browser progress. Modules 1–2 and Module 3 keep their existing progress keys; Module 4 has its own.
+
+MODULE 4 — CUSTOMER SERVICE
+Based on slides 48–58 of the August 2026 INS Operations and Training Manual, using the source content extracted for the September 20 training work.
+12 lessons, a practice scenario in every lesson, a 10-question final check, saved browser progress, and downloadable/printable results. Estimated session: 25–35 minutes, with more time for role-play.
+
+An 80% result is a suggested practice target, not an official certification threshold. Results remain in the learner's browser and are not sent to a trainer automatically.
+
+TRAINER NOTES
+Slide 52 explicitly allows approved accommodation or operational exceptions to sales-floor seating restrictions; slide 47 uses conflicting absolute wording. The Module 4 lesson preserves the explicit exceptions. Confirm instructions with Operations.
+Slide 58 lists possible consequences for validated/substantiated complaints, but does not describe the validation process or counting period. No missing process has been invented.
+Practice scenarios do not create refund or price-adjustment entitlements.
+Uniform and complaint consequences are presented as the manual's internal policy, not as newly verified policy.
+
+This package is ready to upload. It has not been published to your GitHub website.
