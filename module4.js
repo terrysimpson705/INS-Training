@@ -3,11 +3,10 @@ const lessons=[
   {
     "m": 4,
     "t": "Arrive ready: uniform & grooming",
-    "slides": "49",
     "intro": "A professional first impression starts before the first customer arrives.",
-    "body": "<p>Wear the approved <strong>black INS Market golf/polo shirt</strong>, black pants or knee-length black shorts, and <strong>closed-toe black shoes</strong>. Uniforms must be clean, properly fitted and in good condition.</p><p>Franchisees must provide access to adequate approved uniforms. The manual recommends a minimum of two shirts per employee.</p><ul><li>Keep hair and facial hair clean, neat and groomed.</li><li>Keep nails clean and maintained; extreme nail length is not permitted.</li><li>Small earrings and finger rings are permitted under the stated grooming policy.</li><li>Avoid heavily scented fragrances.</li></ul><details><summary>Franchisee reference</summary><p>Slide 49 identifies wearwell.quniform.com/davisgroup for approved apparel orders and states that uniform non-compliance may lead to compliance action and penalties up to $500. Confirm current ordering instructions with your trainer.</p></details>",
+    "body": "<p>Wear the approved <strong>black INS Market golf/polo shirt</strong>, black pants or knee-length black shorts, and <strong>closed-toe black shoes</strong>. Uniforms must be clean, properly fitted and in good condition.</p><p>Franchisees must make sure employees have enough approved uniforms. At least two shirts per employee are recommended.</p><ul><li>Keep hair and facial hair clean, neat and groomed.</li><li>Keep nails clean and maintained; extreme nail length is not permitted.</li><li>Small earrings and finger rings are permitted.</li><li>Avoid heavily scented fragrances.</li></ul><details><summary>Ordering uniforms</summary><p>Order approved apparel through wearwell.quniform.com/davisgroup. Uniform non-compliance may lead to compliance action and penalties up to $500. Confirm current ordering instructions with your trainer.</p></details>",
     "q": [
-      "Which outfit meets the standard uniform described in Module 4?",
+      "Which outfit is right for your shift?",
       [
         "A plain grey shirt, black pants and sandals.",
         "An INS black polo, black pants and closed-toe black shoes.",
@@ -20,11 +19,10 @@ const lessons=[
   {
     "m": 4,
     "t": "Hygiene & a welcoming atmosphere",
-    "slides": "50",
     "intro": "Come prepared to serve customers comfortably and professionally.",
-    "body": "<p>Maintain daily personal hygiene and keep your hair, teeth, hands, nails and clothing clean. Avoid strong body odours and fragrances. This matters while handling merchandise, bags, receipts, cash and cards.</p><p><strong>If you are sick or experiencing symptoms of illness, the manual says not to report to work.</strong> Notify your manager as soon as possible. Return when you are well enough to safely perform your duties and interact with customers.</p><p>Use appropriate background music that suits a broad customer base and helps create a welcoming atmosphere.</p><details><summary>Before-shift reflection</summary><p>Check your uniform and cleanliness, make sure you are ready to work, and raise any illness-related absence promptly so your manager can address coverage.</p></details>",
+    "body": "<p>Maintain daily personal hygiene and keep your hair, teeth, hands, nails and clothing clean. Avoid strong body odours and fragrances. This matters while handling merchandise, bags, receipts, cash and cards.</p><p><strong>If you are sick or have symptoms of illness, do not report to work.</strong> Notify your manager as soon as possible. Return when you are well enough to safely perform your duties and interact with customers.</p><p>Use appropriate background music that suits a broad customer base and helps create a welcoming atmosphere.</p><details><summary>Before-shift reflection</summary><p>Check your uniform and cleanliness, make sure you are ready to work, and raise any illness-related absence promptly so your manager can address coverage.</p></details>",
     "q": [
-      "You become ill before your shift. What does the manual direct you to do?",
+      "You become ill before your shift. What should you do?",
       [
         "Attend and avoid talking to customers.",
         "Wait until the shift is over to tell anyone.",
@@ -37,7 +35,6 @@ const lessons=[
   {
     "m": 4,
     "t": "Respect in every interaction",
-    "slides": "51",
     "intro": "Customers and colleagues deserve courtesy, fairness and respect.",
     "body": "<p>Use a friendly acknowledgment and polite language such as “Please,” “Thank you,” and “May I help you?” Never offend, embarrass or humiliate a customer.</p><p>Answer the phone professionally: <strong>“Good afternoon, INS Market. How can I help you?”</strong> Record accurate messages when required.</p><p>Keep personal phones, food, drinks, gum and personal belongings out of the customer area. Arrive ready for work, refrain from consuming drugs or alcohol during business hours, and follow smoking restrictions.</p><details><summary>Try saying it aloud</summary><p>A customer needs help while you are talking with a colleague. Pause the personal conversation and say, “Hello, how can I help you?” Give the customer your attention.</p></details>",
     "q": [
@@ -54,24 +51,22 @@ const lessons=[
   {
     "m": 4,
     "t": "Stay attentive on the sales floor",
-    "slides": "52",
     "intro": "Use quiet periods to improve the store while remaining ready to help.",
-    "body": "<p>Stay attentive, mobile and ready to assist customers. During downtime, move onto the sales floor to welcome customers, create inventory pull lists, stock and face shelves, clean and dust, prepare price tags and check best-before dates.</p><p>Take breaks away from customer view in the designated back area or outside the store.</p><p>Slide 52 states that chairs are not permitted on the sales floor <strong>unless required for an approved accommodation or operational need</strong>.</p><p class=\"note\">Slide 47 uses absolute seating wording. This lesson preserves the explicit exceptions in Module 4, slide 52. Have your trainer clarify any conflicting instruction.</p>",
+    "body": "<p>Stay attentive, mobile and ready to assist customers. During downtime, move onto the sales floor to welcome customers, create inventory pull lists, stock and face shelves, clean and dust, prepare price tags and check best-before dates.</p><p>Take breaks away from customer view in the designated back area or outside the store.</p><p>Chairs are not permitted on the sales floor <strong>unless required for an approved accommodation or operational need</strong>.</p><p class=\"note\">Ask your trainer if you need clarification about approved seating arrangements.</p>",
     "q": [
-      "The store is quiet. Which action best follows Module 4?",
+      "The store is quiet. What’s the best way to use this time?",
       [
         "Stay behind the register looking at your personal phone.",
         "Face shelves and check dates while staying ready to welcome customers.",
         "Remove a chair even though it is part of an approved accommodation."
       ],
       1,
-      "Use downtime productively and remain attentive. Slide 52 explicitly allows approved accommodation or operational exceptions."
+      "Use downtime productively and remain attentive. Approved accommodations and operational needs are exceptions to the seating restriction."
     ]
   },
   {
     "m": 4,
     "t": "Step 1: greet or acknowledge",
-    "slides": "53–54",
     "intro": "Every customer should feel noticed within one minute.",
     "body": "<p><strong>Greet or acknowledge every customer within one minute of entering.</strong> Pause your task, smile, make eye contact and use a welcoming tone.</p><p>If you are already serving someone, acknowledge the new arrival with a smile, nod or “I’ll be with you shortly.” Continue serving the customer in front of you professionally.</p><h3>The five sales standards</h3><ol><li>Greet or acknowledge.</li><li>Determine customer needs.</li><li>Suggest a relevant item or current promotion.</li><li>Register the sale correctly.</li><li>Thank the customer and invite them back.</li></ol>",
     "q": [
@@ -88,7 +83,6 @@ const lessons=[
   {
     "m": 4,
     "t": "Step 2: understand the need",
-    "slides": "53–54",
     "intro": "Listen first, then provide the assistance that fits.",
     "body": "<p>Notice whether the customer needs quick service, help finding an item or product guidance. If they know what they want, keep the interaction friendly and efficient.</p><p>If they seem unsure, ask an <strong>open-ended question</strong> such as “What do you have in mind?” Listen carefully and use follow-up questions to help them find a suitable product.</p><details><summary>Practice conversation</summary><p><strong>Customer:</strong> “I need something for the train ride.”</p><p><strong>You:</strong> “What kind of snack are you looking for?”</p><p>Use their answer to guide the recommendation. Avoid deciding what they want before listening.</p></details>",
     "q": [
@@ -105,7 +99,6 @@ const lessons=[
   {
     "m": 4,
     "t": "Step 3: make a helpful suggestion",
-    "slides": "53, 55",
     "intro": "A good suggestion fits the purchase and the customer.",
     "body": "<p>Offer a relevant additional item, current promotion, new product or clearance item. Recommend products that complement the customer’s purchase and keep the suggestion helpful.</p><p>For example, a customer buying chips may appreciate: <strong>“Would you like a water with those?”</strong> If you mention an offer, make sure it is a current store promotion.</p><details><summary>Practice: choose your words</summary><p>A customer chooses a sandwich. A relevant suggestion is, “Would you like a drink with your sandwich?” If they decline, continue the transaction courteously. This is a practice example of helpful service.</p></details>",
     "q": [
@@ -122,7 +115,6 @@ const lessons=[
   {
     "m": 4,
     "t": "Step 4: register the sale correctly",
-    "slides": "53, 55",
     "intro": "Accurate transactions support service, inventory and reporting.",
     "body": "<p><strong>Scan and register every item correctly at the time of purchase.</strong> Accurate sales data supports inventory decisions and planograms.</p><ul><li>Keep the cash drawer closed before and after the transaction.</li><li>Offer a receipt to every customer.</li><li>Keep service efficient without skipping the required steps.</li></ul><details><summary>Spot the missed step</summary><p>A team member scans every item correctly and closes the drawer, but only offers a receipt when asked. The missing standard is to <strong>offer a receipt to every customer</strong>.</p></details>",
     "q": [
@@ -139,7 +131,6 @@ const lessons=[
   {
     "m": 4,
     "t": "Step 5: finish with a thank-you",
-    "slides": "53, 56",
     "intro": "The final words are part of the customer’s experience.",
     "body": "<p>End each transaction with a sincere thank-you and a friendly invitation to return. For example: <strong>“Thank you, see you soon.”</strong></p><p>Your tone, smile and sincerity matter as much as your words. A warm closing supports a positive impression and repeat visits.</p><p>The complete experience runs from entry to exit: a clean, well-stocked store with friendly, knowledgeable and efficient service.</p><details><summary>Rehearse the whole transaction</summary><p>Welcome the customer, understand their need, offer something relevant, register the sale and offer a receipt, then thank them and invite them back.</p></details>",
     "q": [
@@ -156,7 +147,6 @@ const lessons=[
   {
     "m": 4,
     "t": "Handle concerns calmly",
-    "slides": "57",
     "intro": "Listen and help the customer feel heard before working toward a solution.",
     "body": "<ol><li><strong>Listen</strong> without interrupting and identify the concern.</li><li><strong>Empathize</strong> and acknowledge the customer’s frustration.</li><li><strong>Apologize</strong> sincerely for their experience.</li><li><strong>Stay calm</strong> and speak slowly with a controlled voice.</li><li><strong>Find a solution within INS Market policies.</strong></li><li>Set aside your ego and focus on resolution.</li><li>Ask follow-up questions to check satisfaction.</li><li>Thank the customer for their patience and end courteously.</li></ol><p>Do not match the customer’s anger or turn the conversation into an argument.</p>",
     "q": [
@@ -173,9 +163,8 @@ const lessons=[
   {
     "m": 4,
     "t": "Practice: resolve a concern",
-    "slides": "54–57",
     "intro": "Put attentive service and calm problem-solving together.",
-    "body": "<p><strong>Scenario:</strong> A customer says the price charged was different from what they expected. You are also serving a growing queue.</p><p>Acknowledge waiting customers. Let the customer explain the issue, then say: “I’m sorry for the frustration. Let’s check the item and the price together.” Work toward a solution within store policy.</p><p>Ask a follow-up question to check whether the concern has been addressed. Thank the customer for their patience even if the outcome is not the one they wanted.</p><p class=\"note\">This practice scenario does not establish a refund or price-adjustment entitlement. Module 4 says to resolve concerns within INS Market policies.</p><details><summary>Partner role-play</summary><p>Take turns being the customer and team member. Practise listening, acknowledging the concern, using a calm voice, finding a policy-based solution and checking satisfaction.</p></details>",
+    "body": "<p><strong>Scenario:</strong> A customer says the price charged was different from what they expected. You are also serving a growing queue.</p><p>Acknowledge waiting customers. Let the customer explain the issue, then say: “I’m sorry for the frustration. Let’s check the item and the price together.” Work toward a solution within store policy.</p><p>Ask a follow-up question to check whether the concern has been addressed. Thank the customer for their patience even if the outcome is not the one they wanted.</p><p class=\"note\">Check the store’s refund and pricing policies before promising a refund or price adjustment.</p><details><summary>Partner role-play</summary><p>Take turns being the customer and team member. Practise listening, acknowledging the concern, using a calm voice, finding a policy-based solution and checking satisfaction.</p></details>",
     "q": [
       "Which response best applies the complaint-handling approach?",
       [
@@ -190,18 +179,17 @@ const lessons=[
   {
     "m": 4,
     "t": "Complaint policy & team responsibility",
-    "slides": "58",
     "intro": "Consistent service is a responsibility shared across the store.",
-    "body": "<p>Franchisees are responsible for ensuring staff follow operational procedures and the Service &amp; Sales Standards.</p><p>Slide 58 states that <strong>validated/substantiated customer complaints</strong> involving the franchisee or staff <strong>may</strong> result in the following:</p><table><thead><tr><th>Complaint</th><th>Consequence stated in the manual</th></tr></thead><tbody><tr><td>First</td><td>Written warning</td></tr><tr><td>Second</td><td>$200 fine</td></tr><tr><td>Third</td><td>Mandatory retraining at the Corporate Training Centre — $500 per day</td></tr><tr><td>Fourth</td><td>Default under the Franchise Agreement</td></tr></tbody></table><p>These are the internal policy terms stated in the manual. The slide does not describe the validation process or complaint-counting period; confirm those details with Operations.</p><p>Use each concern to identify a service gap and reinforce the five standards with the team. A poor experience can affect the entire INS Market brand.</p>",
+    "body": "<p>Franchisees are responsible for ensuring staff follow operational procedures and the Service &amp; Sales Standards.</p><p><strong>Validated/substantiated customer complaints</strong> involving the franchisee or staff <strong>may</strong> result in the following:</p><table><thead><tr><th>Complaint</th><th>Possible consequence</th></tr></thead><tbody><tr><td>First</td><td>Written warning</td></tr><tr><td>Second</td><td>$200 fine</td></tr><tr><td>Third</td><td>Mandatory retraining at the Corporate Training Centre — $500 per day</td></tr><tr><td>Fourth</td><td>Default under the Franchise Agreement</td></tr></tbody></table><p>Contact Operations to confirm how complaints are validated and the period over which they are counted.</p><p>Use each concern to identify a service gap and reinforce the five standards with the team. A poor experience can affect the entire INS Market brand.</p>",
     "q": [
-      "Which statement accurately reflects slide 58?",
+      "Which statement accurately describes the customer complaint policy?",
       [
-        "The listed consequences relate to validated/substantiated complaints and may apply as stated.",
+        "These consequences may apply once a complaint has been investigated and substantiated.",
         "Every unverified complaint automatically produces a fine.",
         "Only complaints involving the franchisee count; staff conduct is excluded."
       ],
       0,
-      "The manual specifies validated/substantiated complaints involving either franchisees or staff and uses “may result.”"
+      "These consequences may apply to validated/substantiated complaints involving either franchisees or staff."
     ]
   }
 ];
@@ -214,7 +202,7 @@ const quiz=[
       "Open-toe black sandals."
     ],
     1,
-    "Slide 49 specifies closed-toe black shoes."
+    "The standard uniform includes closed-toe black shoes."
   ],
   [
     "You are ill and unable to work. What should you do?",
@@ -224,17 +212,17 @@ const quiz=[
       "Notify your manager as soon as possible and do not report to work while ill."
     ],
     2,
-    "Slide 50 directs ill employees not to report and to notify their manager promptly."
+    "If you are ill, do not report to work and notify your manager promptly."
   ],
   [
-    "Which statement about sales-floor seating matches slide 52?",
+    "Which statement correctly describes the sales-floor seating policy?",
     [
       "Approved accommodations or operational needs are explicit exceptions.",
       "There are no exceptions under any circumstances.",
       "Any employee can choose to add seating without approval."
     ],
     0,
-    "Slide 52 expressly includes approved accommodation and operational exceptions."
+    "Approved accommodations and operational needs are exceptions to the seating restriction."
   ],
   [
     "When must an entering customer be greeted or acknowledged?",
@@ -244,7 +232,7 @@ const quiz=[
       "Within five minutes."
     ],
     1,
-    "Slides 53–54 set the acknowledgment standard at one minute."
+    "Greet or acknowledge every customer within one minute of entering."
   ],
   [
     "Which is an open-ended question to understand a customer’s needs?",
@@ -264,7 +252,7 @@ const quiz=[
       "It uses an expired promotion to attract attention."
     ],
     0,
-    "Slide 55 calls for helpful, relevant suggestions and current promotions."
+    "Keep suggestions helpful and relevant, and make sure promotions are current."
   ],
   [
     "Which checkout practice follows the sales standards?",
@@ -287,14 +275,14 @@ const quiz=[
     "A sincere thank-you and invitation to return complete the interaction."
   ],
   [
-    "A customer is upset. Which approach follows Module 4?",
+    "A customer is upset. What’s the best way to respond?",
     [
       "Listen, acknowledge, remain calm and work toward a solution within policy.",
       "Argue until the customer agrees with you.",
       "Promise a refund without checking policy."
     ],
     0,
-    "Slide 57 emphasizes listening, empathy, calm communication and policy-based solutions."
+    "Listen, show empathy, stay calm and find a solution within store policy."
   ],
   [
     "Who must ensure store staff follow the Service & Sales Standards?",
@@ -304,14 +292,14 @@ const quiz=[
       "The customer."
     ],
     1,
-    "Slide 58 places responsibility on franchisees to ensure staff follow the procedures and standards."
+    "Franchisees are responsible for ensuring staff follow the procedures and service standards."
   ]
 ];
 let state={i:0,done:[],answers:{},quiz:{},submitted:false};try{const s=JSON.parse(localStorage.getItem('ins-m4-v1'));if(s&&Number.isInteger(s.i)&&s.i>=0&&s.i<=12&&Array.isArray(s.done)){state={...state,...s};state.done=s.done.filter(n=>Number.isInteger(n)&&n>=0&&n<12)}}catch{}
 function save(){try{localStorage.setItem('ins-m4-v1',JSON.stringify(state))}catch{}}
 function navigate(i){if(!Number.isInteger(i)||i<0||i>12)throw Error('Unknown lesson');state.i=i;save();render();$('#main').focus();window.scrollTo({top:0,behavior:'smooth'})}
 function nav(){let group=0;$('#nav').innerHTML=lessons.map((l,i)=>{let h='';if(l.m!==group){group=l.m;h=`<p class="group">0${group} / ${'CUSTOMER SERVICE'}</p>`}return h+`<button data-nav="${i}" class="${state.i===i?'active':''}" ${state.i===i?'aria-current="step"':''}><span>${state.done.includes(i)?'✓':String(i+1).padStart(2,'0')}</span>${l.t}</button>`}).join('')+`<button data-nav="12" class="${state.i===12?'active':''}"><span>→</span>Final knowledge check</button>`;document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>navigate(Number(b.dataset.nav)));$('#progressText').textContent=`${state.done.length} of 12 lessons completed`;$('#progress').value=state.done.length}
-function render(){nav();if(state.i===12){renderQuiz();return}const l=lessons[state.i],a=state.answers[state.i];$('#main').innerHTML=`<span class="pill">Module 0${l.m} · Lesson ${state.i+1} of 12</span><h1>${l.t}</h1><p class="intro">${l.intro}</p><section class="lesson">${l.body}</section><section class="activity"><span class="tag">YOUR TURN</span><h2>${l.q[0]}</h2><div id="choices">${l.q[1].map((v,i)=>`<button class="choice ${a===i?(i===l.q[2]?'correct':'wrong'):''}" data-choice="${i}">${v}</button>`).join('')}</div><div id="feedback" class="feedback ${a===l.q[2]?'good':''}" aria-live="polite">${a!==undefined?(a===l.q[2]?'Correct. ':'Not quite. Try again. ')+l.q[3]:''}</div></section><p class="source">Manual reference: slides ${l.slides}. Scenarios are practice examples based on the manual.</p><div class="actions"><button id="back" class="secondary" ${state.i===0?'disabled':''}>Previous</button><button id="next" class="primary" ${a!==l.q[2]?'disabled':''}>${state.i===11?'Continue to final check':'Complete & continue'}</button></div>`;document.querySelectorAll('[data-choice]').forEach(b=>b.onclick=()=>{state.answers[state.i]=Number(b.dataset.choice);save();render()});$('#back').onclick=()=>navigate(state.i-1);$('#next').onclick=()=>{if(state.answers[state.i]!==l.q[2])return;if(!state.done.includes(state.i))state.done.push(state.i);navigate(state.i+1)};bindLabs()}
+function render(){nav();if(state.i===12){renderQuiz();return}const l=lessons[state.i],a=state.answers[state.i];$('#main').innerHTML=`<span class="pill">Module 0${l.m} · Lesson ${state.i+1} of 12</span><h1>${l.t}</h1><p class="intro">${l.intro}</p><section class="lesson">${l.body}</section><section class="activity"><span class="tag">YOUR TURN</span><h2>${l.q[0]}</h2><div id="choices">${l.q[1].map((v,i)=>`<button class="choice ${a===i?(i===l.q[2]?'correct':'wrong'):''}" data-choice="${i}">${v}</button>`).join('')}</div><div id="feedback" class="feedback ${a===l.q[2]?'good':''}" aria-live="polite">${a!==undefined?(a===l.q[2]?'Correct. ':'Not quite—have another try. ')+l.q[3]:''}</div></section><p class="source">Scenarios are practice examples based on the manual.</p><div class="actions"><button id="back" class="secondary" ${state.i===0?'disabled':''}>Previous</button><button id="next" class="primary" ${a!==l.q[2]?'disabled':''}>${state.i===11?'Continue to final check':'Complete & continue'}</button></div>`;document.querySelectorAll('[data-choice]').forEach(b=>b.onclick=()=>{state.answers[state.i]=Number(b.dataset.choice);save();render()});$('#back').onclick=()=>navigate(state.i-1);$('#next').onclick=()=>{if(state.answers[state.i]!==l.q[2])return;if(!state.done.includes(state.i))state.done.push(state.i);navigate(state.i+1)};bindLabs()}
 const money=n=>new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'}).format(n);
 function values(ids){let v=ids.map(id=>$('#'+id).value.trim());if(v.some(x=>x===''))return null;v=v.map(Number);return v.every(x=>Number.isFinite(x)&&x>=0)?v:null}
 function bindLabs(){}

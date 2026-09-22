@@ -26,3 +26,7 @@ Practice scenarios do not create refund or price-adjustment entitlements.
 Uniform and complaint consequences are presented as the manual's internal policy, not as newly verified policy.
 
 This package is ready to upload. It has not been published to your GitHub website.
+
+EDITORIAL UPDATE — MODULES 1–4
+All 36 lessons have been reviewed for a more natural tone. Learner-facing slide references have been removed from lessons, questions, feedback and page footers. Trainer-Source-References.txt contains the source mapping. Upload the same eight website files as listed above.
+
