@@ -1,43 +1,44 @@
-# INS Market interactive owner and manager training
+# INS Market Operations Manual Training
 
-Open `index.html` in a current Edge, Chrome, Firefox or Safari browser. No installation, server, login or internet connection is needed for the course itself. External official-reference links need internet.
+Six-hour learning edition · November 14, 2026
 
-- 9 modules, 57 reading sections, 18 workplace scenarios, 9 practical labs and 117 scored questions.
-- Original Modules 1 and 2 are combined, with 15 questions. Every module has 12–15 questions.
-- Planned duration: 120 minutes. Reading, calculation, feedback and discussion time form part of the plan. Actual time varies. The timer does not force a wait.
-- To complete a module, mark every reading reviewed, complete both scenarios and its practical lab, and pass the knowledge check with at least 80%. A 12-question module needs 10 correct; a 15-question module needs 12 correct.
-- Feedback explains each answer. Retakes are available and the best quiz result is retained.
-- The completion record unlocks after all nine modules are complete. Use Print / save completion record to print or use the browser’s Save as PDF option.
-- The record is for this course. INS practical certification and AGCO-approved training are separate.
+This self-paced course contains **104 readings, 290 questions, 18 workplace scenarios and nine practical labs**. There are 29 new readings with expandable “Pause and decide” exercises, worked examples, pictures and visual checklists. Allow about six hours; individual pace and time spent reflecting will vary. No artificial wait is required.
 
-## Saved progress and moving between computers
+| Module | Planned minutes | Readings | Questions | Pass mark |
+|---|---:|---:|---:|---:|
+| 1. Company, communication & finances | 35 | 12 | 30 | 24/30 |
+| 2. Compliance & approved operating standards | 35 | 11 | 30 | 24/30 |
+| 3. Customer service & the five sales standards | 35 | 9 | 30 | 24/30 |
+| 4. Daily operations, food safety & records | 40 | 11 | 30 | 24/30 |
+| 5. Merchandising, promotions & housekeeping | 35 | 11 | 30 | 24/30 |
+| 6. People, workplace safety & loss prevention | 45 | 11 | 35 | 28/35 |
+| 7. Approved suppliers, ordering & lottery | 40 | 13 | 30 | 24/30 |
+| 8. Ontario alcohol: setup & responsible sales | 55 | 13 | 40 | 32/40 |
+| 9. POS, payments, prepaid fraud & maintenance | 40 | 13 | 35 | 28/35 |
+| **Total** | **360** | **104** | **290** | **80% in each module** |
 
-Progress, optional learner/store details and action notes stay in the current browser profile. There is no automatic report to Head Office and no central LMS or cross-device synchronization. Browser storage can be cleared and `file:` storage behaviour varies by browser.
+The alcohol module now covers convenience-store permissions, product-strength limits, sampling, ID checks, intoxication and suspected second-party purchases, category display shares, VQA signs, promotions/inducements, deposits and authorized pickup/delivery. New sections also cover accessible customer service, Ontario tobacco controls and WHMIS. Legal requirements are distinguished from INS instructions and learner practice. The owner approved these additions and confirmed the existing INS fees, operating rules, supplier details and equipment procedures.
 
-Use Progress & completion record → Export progress backup. On the other computer, open the same course and import that JSON backup. Import replaces the local record after confirmation. Export before moving from a local file to a GitHub Pages URL because they use separate storage origins. Keep individual backups when multiple learners share a browser.
+## Use and edit the files
 
-The active timer pauses when the page is hidden, manually paused or idle for 90 seconds. Results summaries include active time, attempts and action notes. A results backup is editable and self-reported, not a secure or proctored credential.
+Open **index.html** to review the course. Upload that file to the existing INS-Training GitHub repository to publish it. It includes the images, content, styles, JavaScript and PDF library. Lessons and PDF download work offline; hosted email requires the published HTTPS course.
 
-## Upload to GitHub Pages
+Edit the files in **editable-source**. Rebuild with:
 
-1. Create or open the repository where you want this course.
-2. Upload `index.html` to the repository root. This one file contains the complete course, styles, code, photos, forms and source library. Keep the filename `index.html` for the home page.
-3. Commit the file. You can optionally also upload the README and facilitator/source notes for maintainers.
-4. In the repository, open Settings → Pages. Use Deploy from a branch, choose the branch and `/ (root)`, then save. GitHub’s available controls depend on the repository/account configuration.
-5. Open the Pages URL GitHub supplies and test Start training, a practical lab and a knowledge check.
+```sh
+python editable-source/build.py
+```
 
-No build command, package manager, API key, database or server is required. The file also works under a repository subpath because its content is embedded and navigation uses URL hashes. GitHub repository preview displays HTML source; use the Pages URL to run the course.
+The standalone INS-Market-Operations-Manual-Training.html supplied beside this folder is an identical copy of index.html. The ZIP includes this complete editable folder.
 
-The training includes internal operating details and fee schedules. Choose hosting and visibility appropriate to your INS audience. Ordinary GitHub Pages does not add a learner login or centrally protect the course.
+## Saved progress
 
-## Content and maintenance
+The six-hour edition has a new progress key, so an earlier certificate cannot be mistaken for completion of the expanded course. On the same browser origin, it can import the previous edition's profile, reviewed existing readings, practical activities and notes. Answers are carried forward only for questions retained unchanged. The learner must complete the new readings and the full 30–40-question checks. Earlier progress is also available as a separate downloadable backup. Export a backup before moving devices or clearing browser data.
 
-`SOURCE-COVERAGE.csv` maps every one of the attached manual’s 107 slides to the course. The in-course Source library preserves source text and selected visuals with descriptions for image-only pages. Earlier reviewed INS modules provide company, communication, financial, compliance, service, operations, merchandising, staff and supplier material. The linked work-computer chat contributed historical case/unit-cost examples.
+## Email notifications
 
-`FACILITATOR-NOTES.md` lists known source conflicts, corrections and the pacing plan. Do not remove the food-safety correction or silently combine separate audit-fee schedules. Use current official resources and Operations direction for live requirements.
+The existing Gmail endpoint and public verification key are preserved. Start notifications go to terry@thedavisgroup.ca. Completion certificates go to the learner with Terry copied. The updated Google script accepts both the previous and six-hour course editions. **Deploy the supplied Code.gs to the existing Web app deployment, then upload index.html.** Follow UPDATE-EMAIL-NOTIFICATIONS.md. Do not create another account or change the current private properties.
 
-Default/shared access codes, store camera identifiers and camera live-view screenshots are excluded from the portable file. Store-specific access remains with the authorized trainer/administrator. The public logo is the red INS Market asset used by the official site header, checked October 25, 2026. Store photographs and technical images come from the supplied/earlier INS material and are included for this requested INS training use.
+No live deployment or real email send was performed during this update. This course does not grant an alcohol licence, replace an AGCO-approved qualification or substitute for other required role-specific or workplace instruction.
 
-For edits, use `editable-source/`: change `training-data.json`, `app.js` or `style.css`, then run `python build.py` in that folder to rebuild the root `index.html`. The JSON contains the embedded images, so it is larger than a typical text file. No third-party Python packages are needed for that rebuild. Keep a backup before editing.
-
-GitHub’s current publishing instructions: [Configure the Pages publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). The optional `.nojekyll` file is included for straightforward static hosting.
+See FACT-CHECK-AND-SOURCES.md for verification notes and official links.

@@ -1,0 +1,200 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Copy the complete Google script | INS Market</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f2f5f2;color:#17212a;font:17px/1.6 Arial,sans-serif}main{max-width:900px;margin:32px auto;padding:28px;background:white;border-top:7px solid #cc1733;border-radius:12px}h1{font-size:30px;line-height:1.2}button,.link{display:inline-block;border:0;background:#cc1733;color:white;padding:14px 20px;border-radius:8px;font:700 16px Arial;cursor:pointer;text-decoration:none;margin:4px 8px 4px 0}.secondary{background:#e7ece8;color:#17212a}textarea{display:block;width:100%;height:360px;padding:16px;border:1px solid #acb6ae;border-radius:8px;font:13px/1.5 Consolas,monospace;white-space:pre;resize:vertical}#status{min-height:28px;font-weight:bold;color:#176d37}.note{background:#f7f0df;padding:16px;border-radius:8px}li{margin-bottom:10px}code{background:#e9eeea;padding:2px 5px}@media(max-width:620px){main{margin:10px;padding:20px}h1{font-size:25px}button,.link{display:block;width:100%;text-align:center}}
+</style></head><body><main><p>INS MARKET · GMAIL SETUP</p><h1>Copy the complete Google script</h1><p>This is the full, syntax-checked <strong>Code.gs</strong> file: 193 lines.</p><ol><li>Click <strong>Copy complete script</strong> below.</li><li>Open your Google Apps Script project and select <strong>Code.gs</strong>.</li><li>Click inside the code editor. Press <strong>Ctrl+A</strong> to select every existing line, including the starter function.</li><li>Press <strong>Ctrl+V</strong> to replace everything. Save the project.</li></ol><p class="note">The script already contains all its functions. Its first line begins <code>/* INS Market certificate sender.</code> It should not be inside a <code>function myFunction() {</code> wrapper.</p><button id="copy">Copy complete script</button><button id="select" class="secondary">Select complete script</button><a class="link secondary" href="https://script.google.com/home/projects/1zRTRGL8SXAr_9AmZ5glqfYQ6Zis_zF-lJkLypp0QZ9-SrMrAM4r_3Rvf/edit" target="_blank" rel="noopener">Open your Google project</a><p id="status" role="status" aria-live="polite"></p><label for="code"><strong>Complete Code.gs — 193 lines</strong></label><textarea id="code" readonly spellcheck="false">/* INS Market certificate sender. Paste into a project owned by
+ * insmarket.training@gmail.com. No Gmail password is used or stored.
+ * Configure ALLOWED_ORIGINS and TURNSTILE_SECRET_KEY in Script Properties.
+ */
+var INS_SENDER = &#x27;insmarket.training@gmail.com&#x27;;
+var INS_COPY = &#x27;terry@thedavisgroup.ca&#x27;;
+var INS_COURSE = &#x27;INS Market Operations Manual Training&#x27;;
+
+// Run this function once in the editor to approve Google permissions.
+// It checks the account and quota; it does not send an email.
+function authorizeSender() {
+  insCheckOwner_();
+  console.log(&#x27;Sender confirmed: &#x27; + INS_SENDER);
+  console.log(&#x27;Remaining daily recipient quota: &#x27; + MailApp.getRemainingDailyQuota());
+}
+
+function doGet() {
+  return HtmlService.createHtmlOutput(&#x27;&lt;!doctype html&gt;&lt;html&gt;&lt;body&gt;&lt;p&gt;INS Market certificate sender. Certificates are submitted from the training course.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&#x27;);
+}
+
+function doPost(e) {
+  var input, origin, nonce;
+  try {
+    if (!e || !e.parameter || typeof e.parameter.payload !== &#x27;string&#x27; || e.parameter.payload.length &gt; 750000) throw Error(&#x27;Invalid request&#x27;);
+    input = JSON.parse(e.parameter.payload);
+    var properties = PropertiesService.getScriptProperties();
+    var allowed = (properties.getProperty(&#x27;ALLOWED_ORIGINS&#x27;) || &#x27;&#x27;).split(&#x27;,&#x27;).map(function (x) { return x.trim(); });
+    origin = input.origin;
+    nonce = input.nonce;
+    if (typeof origin !== &#x27;string&#x27; || !/^https:\/\/[a-zA-Z0-9.-]+(?::\d+)?$/.test(origin) || allowed.indexOf(origin) &lt; 0 || typeof nonce !== &#x27;string&#x27; || !/^[a-f0-9]{64}$/.test(nonce)) throw Error(&#x27;Origin not configured&#x27;);
+    insCheckOwner_();
+    if (input.event &amp;&amp; input.event !== &#x27;sign_on&#x27; &amp;&amp; input.event !== &#x27;certificate&#x27;) throw Error(&#x27;Invalid event&#x27;);
+    var signOn = input.event === &#x27;sign_on&#x27;;
+    var data = signOn ? insValidateSignOn_(input) : insValidate_(input);
+    var secret = properties.getProperty(&#x27;TURNSTILE_SECRET_KEY&#x27;);
+    if (!secret) return insReply_(origin, nonce, { accepted: false, uncertain: false, error: &#x27;The email verification service is not configured.&#x27; });
+    if (typeof input.turnstile_token !== &#x27;string&#x27; || !input.turnstile_token || input.turnstile_token.length &gt; 2048) return insReply_(origin, nonce, { accepted: false, uncertain: false, error: &#x27;Complete the email verification check.&#x27; });
+    var verification = UrlFetchApp.fetch(&#x27;https://challenges.cloudflare.com/turnstile/v0/siteverify&#x27;, {
+      method: &#x27;post&#x27;, contentType: &#x27;application/json&#x27;, muteHttpExceptions: true,
+      payload: JSON.stringify({ secret: secret, response: input.turnstile_token })
+    });
+    if (verification.getResponseCode() !== 200) return insReply_(origin, nonce, { accepted: false, uncertain: false, error: &#x27;Email verification is temporarily unavailable.&#x27; });
+    var verified = JSON.parse(verification.getContentText());
+    var hostname = origin.slice(8).split(&#x27;:&#x27;)[0];
+    if (!verified.success || verified.hostname !== hostname || verified.action !== (signOn ? &#x27;sign_on&#x27; : &#x27;certificate&#x27;)) return insReply_(origin, nonce, { accepted: false, uncertain: false, error: &#x27;Email verification expired. Please try again.&#x27; });
+    var result = insSubmit_(data, properties);
+    return insReply_(origin, nonce, result);
+  } catch (error) {
+    // Never reflect posted data, keys or internal errors into a response.
+    if (origin &amp;&amp; nonce &amp;&amp; /^[a-f0-9]{64}$/.test(nonce)) {
+      var configured = (PropertiesService.getScriptProperties().getProperty(&#x27;ALLOWED_ORIGINS&#x27;) || &#x27;&#x27;).split(&#x27;,&#x27;).map(function (x) { return x.trim(); });
+      if (configured.indexOf(origin) &gt;= 0) return insReply_(origin, nonce, { accepted: false, uncertain: true, error: &#x27;The training email could not be confirmed. You can continue training or contact Terry.&#x27; });
+    }
+    return HtmlService.createHtmlOutput(&#x27;&lt;!doctype html&gt;&lt;html&gt;&lt;body&gt;&lt;p&gt;This certificate request is not permitted or the sender is not configured.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&#x27;);
+  }
+}
+
+function insCheckOwner_() {
+  var actual = Session.getEffectiveUser().getEmail().toLowerCase().replace(/\./g, &#x27;&#x27;);
+  if (actual !== INS_SENDER.replace(/\./g, &#x27;&#x27;)) throw Error(&#x27;Deploy under the INS training account&#x27;);
+}
+
+function insValidate_(input) {
+  function text(key, max) {
+    var value = input[key];
+    if (typeof value !== &#x27;string&#x27; || !value.trim() || value.length &gt; max || /[\x00-\x1f\x7f]/.test(value)) throw Error(&#x27;Invalid certificate field&#x27;);
+    return value.trim();
+  }
+  var data = {
+    to_email: text(&#x27;to_email&#x27;, 254), franchisee_name: text(&#x27;franchisee_name&#x27;, 150),
+    store_name: text(&#x27;store_name&#x27;, 180), store_number: text(&#x27;store_number&#x27;, 40),
+    completion_date: text(&#x27;completion_date&#x27;, 60), certificate_number: text(&#x27;certificate_number&#x27;, 40)
+  };
+  if (!/^[A-Z0-9.!#$%&amp;&#x27;*+/=?^_`{|}~-]+@[A-Z0-9](?:[A-Z0-9.-]*[A-Z0-9])?\.[A-Z]{2,63}$/i.test(data.to_email)) throw Error(&#x27;Invalid recipient&#x27;);
+  if (!/^INS-\d{8}-[A-F0-9]{12}$/.test(data.certificate_number) || input.idempotency_key !== data.certificate_number) throw Error(&#x27;Invalid certificate number&#x27;);
+  if (typeof input.certificate_file !== &#x27;string&#x27; || input.certificate_file.length &gt; 680000 || !/^JVBER[A-Za-z0-9+/]*={0,2}$/.test(input.certificate_file) || input.certificate_file.length % 4) throw Error(&#x27;Invalid PDF&#x27;);
+  var bytes = Utilities.base64Decode(input.certificate_file);
+  if (bytes.length &lt; 100 || String.fromCharCode.apply(null, bytes.slice(0, 5)) !== &#x27;%PDF-&#x27;) throw Error(&#x27;Invalid PDF&#x27;);
+  data.attachment = Utilities.newBlob(bytes, &#x27;application/pdf&#x27;, &#x27;INS-Market-Certificate-&#x27; + data.certificate_number + &#x27;.pdf&#x27;);
+  return data;
+}
+
+function insValidateSignOn_(input) {
+  function text(key, max) {
+    var value = input[key];
+    if (typeof value !== &#x27;string&#x27; || !value.trim() || value.length &gt; max || /[\x00-\x1f\x7f]/.test(value)) throw Error(&#x27;Invalid start field&#x27;);
+    return value.trim();
+  }
+  var data = {event:&#x27;sign_on&#x27;,to_email:text(&#x27;to_email&#x27;,254),franchisee_name:text(&#x27;franchisee_name&#x27;,150),store_name:text(&#x27;store_name&#x27;,180),store_number:text(&#x27;store_number&#x27;,40),course_edition:text(&#x27;course_edition&#x27;,80),started_at:text(&#x27;started_at&#x27;,40)};
+  if (!/^[A-Z0-9.!#$%&amp;&#x27;*+/=?^_`{|}~-]+@[A-Z0-9](?:[A-Z0-9.-]*[A-Z0-9])?\.[A-Z]{2,63}$/i.test(data.to_email)) throw Error(&#x27;Invalid email&#x27;);
+  if ([&#x27;operations-manual-2026-v2&#x27;,&#x27;operations-manual-2026-v3&#x27;].indexOf(data.course_edition) &lt; 0 || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(data.started_at) || isNaN(Date.parse(data.started_at))) throw Error(&#x27;Invalid start event&#x27;);
+  return data;
+}
+
+function insSignOnMessage_(data) {
+  var received = Utilities.formatDate(new Date(), &#x27;America/Toronto&#x27;, &#x27;yyyy-MM-dd HH:mm:ss z&#x27;);
+  return {
+    to:INS_COPY,name:&#x27;INS Market Training&#x27;,replyTo:INS_COPY,
+    subject:&#x27;INS Market training started - &#x27; + data.franchisee_name + &#x27; - Store &#x27; + data.store_number,
+    body:&#x27;A learner has signed on and started &#x27; + INS_COURSE + &#x27;.\n\n&#x27; +
+      &#x27;Franchisee: &#x27; + data.franchisee_name + &#x27;\nEmail: &#x27; + data.to_email +
+      &#x27;\nStore: &#x27; + data.store_name + &#x27;\nStore number: &#x27; + data.store_number +
+      &#x27;\nStarted (learner device, UTC): &#x27; + data.started_at + &#x27;\nNotification received (Toronto): &#x27; + received +
+      &#x27;\n\nYou will receive the completion certificate when this learner finishes all course requirements and submits the certificate email.&#x27;
+  };
+}
+
+function insHash_(value) {
+  return Utilities.base64EncodeWebSafe(Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, value, Utilities.Charset.UTF_8)).replace(/=+$/, &#x27;&#x27;);
+}
+
+function insSubmit_(data, properties) {
+  var lock = LockService.getScriptLock();
+  if (!lock.tryLock(10000)) return { accepted: false, uncertain: false, error: &#x27;The certificate sender is busy. Try again shortly.&#x27; };
+  try {
+    var signOn = data.event === &#x27;sign_on&#x27;;
+    var key = signOn ? &#x27;sign-on:&#x27; + insHash_(JSON.stringify([data.course_edition, data.to_email.toLowerCase(), data.store_number.toLowerCase()])) : &#x27;certificate:&#x27; + data.certificate_number;
+    var identity = signOn ? key : insHash_(JSON.stringify([data.to_email, data.franchisee_name, data.store_name, data.store_number, data.completion_date, data.certificate_number]));
+    var stored = properties.getProperty(key), record = stored ? JSON.parse(stored) : null;
+    if (record) {
+      if (record.identity !== identity) return { accepted: false, uncertain: false, error: &#x27;Certificate details differ from the earlier submission. Contact Terry.&#x27; };
+      if (record.status === &#x27;submitted&#x27;) return { accepted: true, messageId: record.receipt };
+      return { accepted: false, uncertain: true, error: &#x27;An earlier submission needs checking by Terry. Another email has not been sent.&#x27; };
+    }
+    var day = Utilities.formatDate(new Date(), &#x27;UTC&#x27;, &#x27;yyyy-MM-dd&#x27;);
+    if (properties.getProperty(&#x27;LAST_COUNTER_CLEANUP&#x27;) !== day) {
+      insCleanCounters_(properties);
+      properties.setProperty(&#x27;LAST_COUNTER_CLEANUP&#x27;, day);
+    }
+    var counterKey = &#x27;day:&#x27; + day;
+    var used = Number(properties.getProperty(counterKey) || 0);
+    var recipientKey = &#x27;recipient:&#x27; + day + &#x27;:&#x27; + (signOn ? &#x27;sign-on:&#x27; : &#x27;&#x27;) + insHash_(data.to_email.toLowerCase());
+    var recipientUsed = Number(properties.getProperty(recipientKey) || 0);
+    var cost = signOn || data.to_email.toLowerCase() === INS_COPY ? 1 : 2;
+    if (used + cost &gt; 90 || recipientUsed &gt;= 2 || MailApp.getRemainingDailyQuota() &lt; cost) return { accepted: false, uncertain: false, error: &#x27;The daily training email limit has been reached. Try again later; you can continue training and download a completed certificate.&#x27; };
+    // Reserve before calling MailApp. If Google times out, retries will require
+    // manual investigation instead of potentially sending a duplicate.
+    record = { identity: identity, status: &#x27;sending&#x27;, at: new Date().toISOString(), receipt: &#x27;gas-&#x27; + Utilities.getUuid() };
+    var changes = {}; changes[key] = JSON.stringify(record); changes[counterKey] = String(used + cost); changes[recipientKey] = String(recipientUsed + 1);
+    properties.setProperties(changes, false);
+    var options = signOn ? insSignOnMessage_(data) : insMessage_(data);
+    try {
+      MailApp.sendEmail(options);
+      record.status = &#x27;submitted&#x27;;
+      properties.setProperty(key, JSON.stringify(record));
+      return { accepted: true, messageId: record.receipt };
+    } catch (error) {
+      // Keep the reserved sending record. Google may have accepted the email.
+      return { accepted: false, uncertain: true, error: &#x27;Google has not confirmed the email. Check the training account and contact Terry before resending.&#x27; };
+    }
+  } finally { lock.releaseLock(); }
+}
+
+function insMessage_(data) {
+  var rows = [[&#x27;Franchisee&#x27;, data.franchisee_name], [&#x27;Store&#x27;, data.store_name], [&#x27;Store number&#x27;, data.store_number], [&#x27;Completed&#x27;, data.completion_date], [&#x27;Certificate&#x27;, data.certificate_number]];
+  var options = {
+    to: data.to_email, name: &#x27;INS Market Training&#x27;, replyTo: INS_COPY,
+    subject: &#x27;INS Market course certificate - &#x27; + data.franchisee_name + &#x27; - Store &#x27; + data.store_number,
+    body: &#x27;Congratulations, &#x27; + data.franchisee_name + &#x27;!\n\nYou have passed &#x27; + INS_COURSE + &#x27;. Your PDF certificate is attached.\n\n&#x27; + rows.map(function (r) { return r[0] + &#x27;: &#x27; + r[1]; }).join(&#x27;\n&#x27;) + &#x27;\n\nA copy has been sent to &#x27; + INS_COPY + &#x27;.\nReply if your details need correcting.\n\nThis records completion of the online course. INS practical certification and required external training are separate.&#x27;,
+    attachments: [data.attachment]
+  };
+  if (data.to_email.toLowerCase() !== INS_COPY) options.cc = INS_COPY;
+  return options;
+}
+
+function insReply_(origin, nonce, result) {
+  result.type = &#x27;ins-certificate-delivery&#x27;; result.nonce = nonce;
+  var encoded = JSON.stringify({ origin: origin, result: result }).replace(/&lt;/g, &#x27;\\u003c&#x27;).replace(/\u2028/g, &#x27;\\u2028&#x27;).replace(/\u2029/g, &#x27;\\u2029&#x27;);
+  // Google serves HtmlService inside its own frame. Notify only ancestors at
+  // the configured course origin. The random nonce binds this to one request.
+  var content = &#x27;&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;/head&gt;&lt;body&gt;&lt;script&gt;var reply=&#x27; + encoded + &#x27;;var ancestor=window;for(var i=0;i&lt;10;i++){if(ancestor===ancestor.parent)break;ancestor=ancestor.parent;ancestor.postMessage(reply.result,reply.origin);}&lt;/script&gt;&lt;p&gt;Certificate email request processed. Return to the training course.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&#x27;;
+  return HtmlService.createHtmlOutput(content).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}
+
+function insCleanCounters_(properties) {
+  var all = properties.getProperties();
+  var cutoff = Utilities.formatDate(new Date(Date.now() - 35 * 86400000), &#x27;UTC&#x27;, &#x27;yyyy-MM-dd&#x27;);
+  Object.keys(all).forEach(function (key) {
+    var date = /^(?:day|recipient):(\d{4}-\d{2}-\d{2})/.exec(key);
+    if (date &amp;&amp; date[1] &lt; cutoff) properties.deleteProperty(key);
+  });
+}
+
+// Optional manual maintenance. Normal submissions also clean old counters
+// once a day. Certificate duplicate records are retained. Sends no email.
+function cleanOldRateCounters() {
+  insCheckOwner_();
+  var lock = LockService.getScriptLock();
+  if (!lock.tryLock(10000)) return;
+  try {
+    insCleanCounters_(PropertiesService.getScriptProperties());
+  } finally { lock.releaseLock(); }
+}
+</textarea><p>After it saves successfully, choose <strong>Deploy → Manage deployments → pencil icon → New version → Deploy</strong>.</p><p>This helper copies code only. It does not send email or contain a password or private verification key.</p></main><script>
+const field=document.getElementById('code'),status=document.getElementById('status');
+document.getElementById('select').onclick=()=>{field.focus();field.select();status.textContent='Complete script selected. Press Ctrl+C to copy it.';};
+document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(field.value);status.textContent='Complete script copied. In Google Code.gs, press Ctrl+A and then Ctrl+V.';}catch(error){field.focus();field.select();let copied=false;try{copied=document.execCommand('copy');}catch{}status.textContent=copied?'Complete script copied. Replace all existing text in Google Code.gs.':'Complete script selected. Press Ctrl+C, then replace all existing text in Google Code.gs.';}};
+</script></body></html>
